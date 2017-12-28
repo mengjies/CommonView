@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 /**
  * Created by MengJie on 2017/9/5.
+ * CommonView
  */
 
 public class CommonView extends RelativeLayout {
