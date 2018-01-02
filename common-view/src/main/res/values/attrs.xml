@@ -4,6 +4,7 @@
     <declare-styleable name="CommonView" >
         <!--<attr name="textSize" />
         <attr name="textColor" />-->
+        <!--<attr name="proBarStyle" format="reference" />-->
         <attr name="errorText" format="string"/>
         <attr name="emptyText" format="string"/>
         <attr name="errorImage" format="reference"/>

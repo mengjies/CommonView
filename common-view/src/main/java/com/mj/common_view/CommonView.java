@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
@@ -33,10 +34,11 @@ public class CommonView extends RelativeLayout {
     private Bitmap mEmptyImage;
     private ContentLoadingProgressBar clProBar;
     //view
-    private LinearLayout llEmpty, llError;
+    private LinearLayout llProBar, llEmpty, llError;
     private ImageView ivEmpty, ivError;
     private TextView tvEmpty, tvError;
     private OnViewClickListener listener;
+    private int mProBarId;
 
     public CommonView(Context context) {
         this(context, null, 0);
@@ -55,6 +57,8 @@ public class CommonView extends RelativeLayout {
             float defTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, DEF_TEXT_SIZE_SP,
                     getResources().getDisplayMetrics());
             mTextSize = ta.getDimensionPixelSize(R.styleable.CommonView_textSize, (int) defTextSize);*/
+
+
             mEmptyText = ta.getString(R.styleable.CommonView_emptyText);
             mErrorText = ta.getString(R.styleable.CommonView_errorText);
             mEmptyImage = BitmapFactory.decodeResource(getResources(), ta.getResourceId(R.styleable.CommonView_emptyImage, 0));
@@ -69,6 +73,7 @@ public class CommonView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_common, this, true);
+        llProBar = (LinearLayout) findViewById(R.id.ll_pro_bar);
         clProBar = (ContentLoadingProgressBar) findViewById(R.id.clProgressBar);
         llEmpty = (LinearLayout) findViewById(R.id.ll_empty);
         llError = (LinearLayout) findViewById(R.id.ll_error);
@@ -77,21 +82,27 @@ public class CommonView extends RelativeLayout {
         tvEmpty = (TextView) findViewById(R.id.tv_empty);
         tvError = (TextView) findViewById(R.id.tv_error);
 
-        clProBar.setVisibility(GONE);
+        //init
+        llProBar.setVisibility(GONE);
         llEmpty.setVisibility(GONE);
         llError.setVisibility(GONE);
 
+
+        //set image
         if (mEmptyImage != null) {
             ivEmpty.setImageBitmap(mEmptyImage);
         }
         if (mErrorImage != null) {
             ivError.setImageBitmap(mErrorImage);
         }
+
+        //text size and color
         /*tvEmpty.setTextSize(mTextSize);
         tvEmpty.setTextColor(mTextColor);
         tvError.setTextSize(mTextSize);
         tvError.setTextColor(mTextColor);*/
 
+        //set text
         if (!TextUtils.isEmpty(mEmptyText)) {
             tvEmpty.setText(mEmptyText);
         }
@@ -122,12 +133,14 @@ public class CommonView extends RelativeLayout {
     }
 
     public void showProBar() {
-        clProBar.setVisibility(VISIBLE);
+        llProBar.setVisibility(VISIBLE);
+        //clProBar.setVisibility(VISIBLE);
         clProBar.show();
     }
 
     public void hideProBar() {
-        clProBar.setVisibility(GONE);
+        llProBar.setVisibility(GONE);
+        //clProBar.setVisibility(GONE);
         clProBar.hide();
     }
 
