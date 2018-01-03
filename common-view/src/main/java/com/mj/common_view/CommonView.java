@@ -38,7 +38,6 @@ public class CommonView extends RelativeLayout {
     private ImageView ivEmpty, ivError;
     private TextView tvEmpty, tvError;
     private OnViewClickListener listener;
-    private int mProBarId;
 
     public CommonView(Context context) {
         this(context, null, 0);

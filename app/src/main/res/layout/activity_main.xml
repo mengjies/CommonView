@@ -36,7 +36,6 @@
     <com.mj.common_view.CommonView
         android:id="@+id/commonView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:proBarStyle="?android:attr/progressBarStyle"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
