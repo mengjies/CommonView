@@ -16,7 +16,7 @@ allprojects {
 Then, add the library to your module `build.gradle`
 ```gradle
 dependencies {
-    compile 'com.github.mengjies:CommonView:1.0'
+    compile 'com.github.mengjies:CommonView:1.0.4'
 }
 ```
 

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     @BindView(R.id.commonView)
     CommonView commonView;
+    private boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +44,25 @@ public class MainActivity extends AppCompatActivity {
                 refresh();
                 break;
             case R.id.btn_showEmpty:
-                commonView.showEmpty();
+                flag = !flag;
+                if (flag) {
+                    commonView.showEmpty();
+                }else {
+                    commonView.showEmpty("empty");
+                }
                 break;
             case R.id.btn_showErro:
-                commonView.showError();
+                flag = !flag;
+                if (flag) {
+                    commonView.showError();
+                }else{
+                    commonView.showError("error");
+                }
                 break;
         }
     }
 
     private void refresh() {
-        commonView.hideView();
         commonView.showProBar();
         Log.d(TAG, "onClick: "+ Thread.currentThread().getId());
         commonView.postDelayed(new Runnable() {

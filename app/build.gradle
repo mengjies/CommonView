@@ -26,6 +26,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile project(':common-view')
+    /*compile 'com.github.mengjies:CommonView:1.0.3'*/
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

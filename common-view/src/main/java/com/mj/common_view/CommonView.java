@@ -102,12 +102,14 @@ public class CommonView extends RelativeLayout {
         tvError.setTextColor(mTextColor);*/
 
         //set text
-        if (!TextUtils.isEmpty(mEmptyText)) {
-            tvEmpty.setText(mEmptyText);
+        if (TextUtils.isEmpty(mEmptyText)) {
+            mEmptyText = "啥也没有！点击刷新";
         }
-        if (!TextUtils.isEmpty(mErrorText)) {
-            tvError.setText(mErrorText);
+        tvEmpty.setText(mEmptyText);
+        if (TextUtils.isEmpty(mErrorText)) {
+            mErrorText = "网络异常！点击重试";
         }
+        tvError.setText(mErrorText);
 
         llEmpty.setOnClickListener(new OnClickListener() {
             @Override
@@ -133,24 +135,38 @@ public class CommonView extends RelativeLayout {
 
     public void showProBar() {
         llProBar.setVisibility(VISIBLE);
-        //clProBar.setVisibility(VISIBLE);
+        clProBar.setVisibility(VISIBLE);
         clProBar.show();
     }
 
     public void hideProBar() {
         llProBar.setVisibility(GONE);
-        //clProBar.setVisibility(GONE);
+        clProBar.setVisibility(GONE);
         clProBar.hide();
     }
 
     public void showError() {
         llError.setVisibility(VISIBLE);
         llEmpty.setVisibility(GONE);
+        tvError.setText(mErrorText);
+    }
+
+    public void showError(String msg) {
+        llError.setVisibility(VISIBLE);
+        llEmpty.setVisibility(GONE);
+        tvError.setText(msg);
     }
 
     public void showEmpty() {
         llEmpty.setVisibility(VISIBLE);
         llError.setVisibility(GONE);
+        tvEmpty.setText(mEmptyText);
+    }
+
+    public void showEmpty(String msg) {
+        llEmpty.setVisibility(VISIBLE);
+        llError.setVisibility(GONE);
+        tvEmpty.setText(msg);
     }
 
     public void hideView() {
