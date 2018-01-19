@@ -42,7 +42,8 @@
             android:id="@+id/tv_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            android:minLines="3"
             android:text="啥也没有！点击刷新" />
 
     </LinearLayout>
@@ -67,7 +68,8 @@
             android:id="@+id/tv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:padding="16dp"
+            android:minLines="3"
             android:text="网络异常！点击重试" />
 
     </LinearLayout>
